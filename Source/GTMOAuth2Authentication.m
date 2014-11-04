@@ -767,7 +767,7 @@ finishedRefreshWithFetcher:(GTMHTTPFetcher *)fetcher
   NSString *code = self.code;
   NSString *assertion = self.assertion;
   NSString *grantType = nil;
-  
+
   if (refreshToken) {
     // We have a refresh token
     grantType = @"refresh_token";
@@ -788,12 +788,12 @@ finishedRefreshWithFetcher:(GTMHTTPFetcher *)fetcher
     if ([redirectURI length] > 0) {
       [paramsDict setObject:redirectURI forKey:@"redirect_uri"];
     }
-    
+
     NSString *scope = self.scope;
     if ([scope length] > 0) {
       [paramsDict setObject:scope forKey:@"scope"];
     }
-    
+
     fetchType = kGTMOAuth2FetchTypeToken;
   } else if (assertion) {
     // We have an assertion string
@@ -895,7 +895,8 @@ finishedRefreshWithFetcher:(GTMHTTPFetcher *)fetcher
 
   NSDictionary *responseHeaders = [fetcher responseHeaders];
   NSString *responseType = [responseHeaders valueForKey:@"Content-Type"];
-  BOOL isResponseJSON = [responseType hasPrefix:@"application/json"];
+  BOOL isResponseJSON = [responseType hasPrefix:@"application/json"] ||
+    [responseType hasPrefix:@"text/javascript"];
   BOOL hasData = ([data length] > 0);
 
   if (error) {
