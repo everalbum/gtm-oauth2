@@ -8,7 +8,7 @@
   },
   "homepage": "https://code.google.com/p/gtm-oauth2/",
   "source": {
-    "svn": "https://github.com/Everalbum/gtm-oauth2.git",
+    "git": "https://github.com/Everalbum/gtm-oauth2.git",
     "revision": "689509618f4205153811be99e610f6d330d7585c"
   },
   "summary": "Google Toolbox for Mac - OAuth 2 Controllers",
